@@ -10,7 +10,7 @@ def index():
     for key, value in data.items():
         temp += f"<li><b>{key}</b> at {value[1]}: {value[0]} </li>"
     temp += "</ul><div>To update, hit the /ip-update/[name]/[ip] endpoint</div></div>"
-    return temp
+    return template('home', data=data.items())
 
 
 @route('/ip-update/<name>/<ip>')
