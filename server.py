@@ -9,7 +9,7 @@ def index():
     temp = "<div><div>ESE 205 IPs</div><ul>"
     for key, value in data.items():
         temp += f"<li><b>{key}</b> at {value[1]}: {value[0]} </li>"
-    temp += "</ul></div>"
+    temp += "</ul><div>To update, hit the /ip-update/[name]/[ip] endpoint</div></div>"
     return temp
 
 
