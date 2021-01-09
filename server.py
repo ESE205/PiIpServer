@@ -2,6 +2,16 @@
 
 from bottle import route, run, template
 import datetime
+import sys
+import argparse
+
+parser = argparse.ArgumentParser(description='Server to advetise IP Addresses for ESE205')
+parser.add_argument('--pwd', help='password for the server')
+
+args = parser.parse_args()
+if args.pwd is None:
+    print('The server expects a password, pass it with the "--pwd" flag')
+    sys.exit(1)
 
 months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
@@ -12,7 +22,7 @@ def index():
     return template('home', data=data.items())
 
 
-@route('/ip-update/<name>/<ip>')
+@route(f'/ip-update/{args.pwd}/<name>/<ip>')
 def index(name, ip):
     curr_time = datetime.datetime.now()
     time = f'{curr_time.hour}:{curr_time.minute}'

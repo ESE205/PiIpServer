@@ -1,5 +1,0 @@
-curl "http://localhost:3000/ip-update/tim/123.456.789"
-curl "http://localhost:3000/ip-update/bim/123.456.789"
-curl "http://localhost:3000/ip-update/lim/123.456.789"
-curl "http://localhost:3000/ip-update/kim/123.456.789"
-curl "http://localhost:3000/ip-update/jim/123.456.789"

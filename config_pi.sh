@@ -18,14 +18,16 @@ echo "Setting up PI to ping server on boot."
 echo "Enter the username you wish to use. No spaces allowed: "
 read username
 echo $username
+echo "Please enter the password for the server specified by the professor"
+read password
 
 echo "Creating the script to ping server with 30 second delay."
 
 read -r -d '\n' fileout <<PING_CONFIG
 #!/bin/bash
 sleep 30
-ip=$(hostname -I | cut -d' ' -f1)
-curl "http://172.17.0.1:3000/ip-update/$username/$ip"
+ip=\$(hostname -I | cut -d' ' -f1)
+curl "http://172.17.0.1:3000/ip-update/$password/$username/\$ip"
 PING_CONFIG
 
 echo "$fileout" >> /usr/local/bin/ip_pinger.sh
