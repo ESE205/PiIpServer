@@ -5,7 +5,7 @@ import datetime
 import sys
 import argparse
 
-parser = argparse.ArgumentParser(description='Server to advetise IP Addresses for ESE205')
+parser = argparse.ArgumentParser(description='Server to advertise IP Addresses for ESE205')
 parser.add_argument('--pwd', help='password for the server')
 
 args = parser.parse_args()
