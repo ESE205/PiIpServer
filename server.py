@@ -5,13 +5,16 @@ import datetime
 import sys
 import argparse
 
-parser = argparse.ArgumentParser(description='Server to advertise IP Addresses for ESE205')
+parser = argparse.ArgumentParser(description='Server to advetise IP Addresses for ESE205')
 parser.add_argument('--pwd', help='password for the server')
-
+# creates a flag instead of an argument
+parser.add_argument('--debug', action='store_true', help='specifies whether the server should perform verbose logging')
 args = parser.parse_args()
+
 if args.pwd is None:
     print('The server expects a password, pass it with the "--pwd" flag')
     sys.exit(1)
+
 
 months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
@@ -31,4 +34,4 @@ def index(name, ip):
     return "SUCCESS"
 
 
-run(host='0.0.0.0', port=3000)
+run(host='0.0.0.0', port=3000, quiet=not args.debug)
